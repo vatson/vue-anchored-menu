@@ -18,9 +18,11 @@ declare module 'vue-anchored-menu/src/plugin' {
 declare module 'vue-anchored-menu/src/AnchoredMenu.vue' {
     import vue from 'vue';
     import { RouteConfig, RawLocation } from 'vue-router';
-    export default class extends vue {
+    export default class  extends vue {
         routes: RouteConfig[];
-        readonly isMaxLevel: boolean;
+        maxLevel: number;
+        level: number;
+        parentPath: string;
         goToAnchor(path: RawLocation, anchor: string): void;
     }
 }

@@ -10,6 +10,7 @@
         </router-link>
         
         <a
+          v-if="!route.title || (level + 1) <= maxLevel"
           v-for="(anchor, title) of route.anchors"
           :key="title"
           :href="'#' + anchor"
@@ -18,13 +19,14 @@
           {{title}}
         </a>
 
-        <router-menu 
-          v-if="!isMaxLevel && hasChildren(route)" 
+        <anchored-menu 
+          v-if="level !== maxLevel && hasChildren(route)" 
           :parent-path="parentPath + route.path + '/'" 
           :routes="route.children" 
-          :level="level + 1"  
+          :level="level + 1"
+          :maxLevel="maxLevel"
           :key="k + String(level)"
-        ></router-menu>
+        ></anchored-menu>
     </template>
   </div>
 </template>
@@ -37,27 +39,20 @@ import vue from 'vue';
 
 import { RouteConfig, RawLocation } from 'vue-router';
 @Component({
-  name: 'router-menu',
+  name: 'anchored-menu',
 })
 export default class extends vue {
   @Prop({ required: true })
-  public routes!: RouteConfig[];
+  routes!: RouteConfig[];
 
   @Prop({ type: Number, default: 2, required: false })
-  private maxLevel!: number;
+  maxLevel!: number;
 
   @Prop({default: 0})
-  private level!: number;
+  level!: number;
 
   @Prop({ type: String, default: '' })
-  private parentPath!: string;
-
-  @Prop({ type: Number, default: 0 })
-  private parentLevel!: number;
-
-  get isMaxLevel(): boolean {
-    return this.level === this.maxLevel;
-  }
+  parentPath!: string;
 
   public goToAnchor(path: RawLocation, anchor: string) {
     this.$router.push(path, () => location.href = '#' + anchor );

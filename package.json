@@ -6,7 +6,7 @@
   "module": "dist/vue-anchored-menu.umd.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve example/main.ts",
     "build": "vue-cli-service build --target lib src/main.ts && npm run bundleDts",
     "bundleDts": "vue-cli-service bundle-dts --removeSource --emitOnNoIncludedFileNotFound"
   },
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.0.0-beta.15",
     "@vue/cli-service": "^3.0.0-beta.15",
+    "typescript": "^2.8.4",
     "vue": "^2.5.16",
     "vue-class-component": "^6.0.0",
     "vue-cli-plugin-ts-bundler": "latest",

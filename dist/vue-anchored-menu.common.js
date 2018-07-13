@@ -96,12 +96,12 @@ __webpack_require__.r(__webpack_exports__);
 // EXTERNAL MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
 var setPublicPath = __webpack_require__("HrLf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/vatson/Projects/vue/anchored-menu-minimal/node_modules/.cache/vue-loader","cacheIdentifier":"511074ec-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/AnchoredMenu.vue?vue&type=template&id=6264f5db
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._l((_vm.routes),function(route,k){return [(route.title)?_c('router-link',{key:k,attrs:{"to":_vm.parentPath + route.path}},[_vm._v("\n        "+_vm._s(route.title)+"\n      ")]):_vm._e(),_vm._l((route.anchors),function(anchor,title){return _c('a',{key:title,attrs:{"href":'#' + anchor},on:{"click":function($event){_vm.goToAnchor(_vm.parentPath + route.path + '#' + anchor, anchor)}}},[_vm._v("\n        "+_vm._s(title)+"\n      ")])}),(!_vm.isMaxLevel && _vm.hasChildren(route))?_c('router-menu',{key:k + String(_vm.level),attrs:{"parent-path":_vm.parentPath + route.path + '/',"routes":route.children,"level":_vm.level + 1}}):_vm._e()]})],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"/Users/vatson/Projects/vue/anchored-menu-minimal/node_modules/.cache/vue-loader","cacheIdentifier":"272b949e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/AnchoredMenu.vue?vue&type=template&id=eaeea67a
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._l((_vm.routes),function(route,k){return [(route.title)?_c('router-link',{key:k,attrs:{"to":_vm.parentPath + route.path}},[_vm._v("\n        "+_vm._s(route.title)+"\n      ")]):_vm._e(),_vm._l((route.anchors),function(anchor,title){return (!route.title || (_vm.level + 1) <= _vm.maxLevel)?_c('a',{key:title,attrs:{"href":'#' + anchor},on:{"click":function($event){_vm.goToAnchor(_vm.parentPath + route.path + '#' + anchor, anchor)}}},[_vm._v("\n        "+_vm._s(title)+"\n      ")]):_vm._e()}),(_vm.level !== _vm.maxLevel && _vm.hasChildren(route))?_c('anchored-menu',{key:k + String(_vm.level),attrs:{"parent-path":_vm.parentPath + route.path + '/',"routes":route.children,"level":_vm.level + 1,"maxLevel":_vm.maxLevel}}):_vm._e()]})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/AnchoredMenu.vue?vue&type=template&id=6264f5db
+// CONCATENATED MODULE: ./src/AnchoredMenu.vue?vue&type=template&id=eaeea67a
 
 // CONCATENATED MODULE: ./node_modules/tslib/tslib.es6.js
 /*! *****************************************************************************
@@ -308,13 +308,6 @@ var AnchoredMenuvue_type_script_lang_ts_default_1 = /** @class */ (function (_su
     function default_1() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Object.defineProperty(default_1.prototype, "isMaxLevel", {
-        get: function () {
-            return this.level === this.maxLevel;
-        },
-        enumerable: true,
-        configurable: true
-    });
     default_1.prototype.goToAnchor = function (path, anchor) {
         this.$router.push(path, function () { return location.href = '#' + anchor; });
     };
@@ -341,13 +334,9 @@ var AnchoredMenuvue_type_script_lang_ts_default_1 = /** @class */ (function (_su
         Object(external_vue_property_decorator_["Prop"])({ type: String, default: '' }),
         __metadata("design:type", String)
     ], default_1.prototype, "parentPath", void 0);
-    __decorate([
-        Object(external_vue_property_decorator_["Prop"])({ type: Number, default: 0 }),
-        __metadata("design:type", Number)
-    ], default_1.prototype, "parentLevel", void 0);
     default_1 = __decorate([
         Object(external_vue_property_decorator_["Component"])({
-            name: 'router-menu',
+            name: 'anchored-menu',
         })
     ], default_1);
     return default_1;
