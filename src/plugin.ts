@@ -1,5 +1,5 @@
 import AnchoredMenu from './AnchoredMenu.vue';
-import { PluginObject } from 'vue/types/plugin';
+import { PluginObject } from 'vue';
 
 export default {
   install: (vue) => {

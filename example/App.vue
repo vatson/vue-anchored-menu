@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <anchored-menu :routes="routes" :maxLevel=1></anchored-menu>
+    <anchored-menu :routes="routes" :maxLevel=2></anchored-menu>
     <router-view/>
   </div>
 </template>
